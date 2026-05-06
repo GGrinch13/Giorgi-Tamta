@@ -127,8 +127,8 @@
   value="1" 
   min="1" 
   max="10"
-  onfocus="this.select()"
   style="text-align: center; width: 70px; margin: 0 auto; display: block;">
+
             </div>
 
             <!-- ღილაკი -->
@@ -337,7 +337,32 @@ audioIconWrapper.onclick = function () {
 // 🚫 თავიდანვე დაბლოკე scroll
 disableScroll();
 </script>
+<script>
+const guestInput = document.getElementById("guestCount");
 
+guestInput.addEventListener("focus", function() {
+  this.select();
+});
+</script>
+<script>
+const yesRadio = document.getElementById("yes");
+const noRadio = document.getElementById("no");
+const guestInput2 = document.getElementById("guestCount");
+
+noRadio.addEventListener("change", () => {
+  if (noRadio.checked) {
+    guestInput.value = 0;
+    guestInput.disabled = true;
+  }
+});
+
+yesRadio.addEventListener("change", () => {
+  if (yesRadio.checked) {
+    guestInput.value = 1;
+    guestInput.disabled = false;
+  }
+});
+</script>
 <script>
 window.addEventListener("load", function() {
   const form = document.getElementById('my-form');
